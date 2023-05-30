@@ -1,0 +1,95 @@
+[gd_scene load_steps=4 format=3 uid="uid://b326ovwmj62hf"]
+
+[ext_resource type="FontFile" uid="uid://btvwq11pvkgw7" path="res://assets/fonts/minimal5x7.ttf" id="1_r0bf7"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_v40wr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1qf77"]
+font = ExtResource("1_r0bf7")
+font_size = 48
+
+[node name="mainMenu" type="Node2D"]
+script = ExtResource("1_v40wr")
+
+[node name="menuContainer" type="VBoxContainer" parent="."]
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="TopMargin" type="MarginContainer" parent="menuContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="menuContainer"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+text = "GameTitle"
+label_settings = SubResource("LabelSettings_1qf77")
+horizontal_alignment = 1
+
+[node name="optionsContainer" type="HBoxContainer" parent="menuContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="leftMargin" type="MarginContainer" parent="menuContainer/optionsContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="buttonsContainer" type="VBoxContainer" parent="menuContainer/optionsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="topMargin" type="MarginContainer" parent="menuContainer/optionsContainer/buttonsContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="menuContainer/optionsContainer/buttonsContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+focus_next = NodePath("../OptionsButton")
+focus_previous = NodePath("../ExitButton")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_r0bf7")
+theme_override_font_sizes/font_size = 32
+text = "Play"
+
+[node name="OptionsButton" type="Button" parent="menuContainer/optionsContainer/buttonsContainer"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+size_flags_vertical = 0
+focus_next = NodePath("../CreditsButton")
+focus_previous = NodePath("../PlayButton")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_r0bf7")
+theme_override_font_sizes/font_size = 16
+text = "Options"
+
+[node name="CreditsButton" type="Button" parent="menuContainer/optionsContainer/buttonsContainer"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+size_flags_vertical = 0
+focus_next = NodePath("../ExitButton")
+focus_previous = NodePath("../OptionsButton")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_r0bf7")
+theme_override_font_sizes/font_size = 16
+text = "Credits"
+
+[node name="ExitButton" type="Button" parent="menuContainer/optionsContainer/buttonsContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+size_flags_vertical = 0
+focus_next = NodePath("../PlayButton")
+focus_previous = NodePath("../CreditsButton")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_r0bf7")
+theme_override_font_sizes/font_size = 16
+text = "Exit"
+
+[node name="topMargin2" type="MarginContainer" parent="menuContainer/optionsContainer/buttonsContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="rightMargin" type="MarginContainer" parent="menuContainer/optionsContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
