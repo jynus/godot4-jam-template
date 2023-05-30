@@ -1,14 +1,40 @@
-[gd_scene load_steps=4 format=3 uid="uid://b326ovwmj62hf"]
+[gd_scene load_steps=9 format=3 uid="uid://b326ovwmj62hf"]
 
 [ext_resource type="FontFile" uid="uid://btvwq11pvkgw7" path="res://assets/fonts/minimal5x7.ttf" id="1_r0bf7"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_v40wr"]
+[ext_resource type="LabelSettings" uid="uid://csrb5ilr7y6dy" path="res://resources/main_menu_title_label_setting.tres" id="2_ckptl"]
+[ext_resource type="StyleBox" uid="uid://67m76h2nyeyy" path="res://resources/main_menu_button_style.tres" id="3_b61lj"]
+[ext_resource type="StyleBox" uid="uid://cscwrtv4vl12l" path="res://resources/main_menu_button_hover_style.tres" id="4_kcoe6"]
+[ext_resource type="StyleBox" uid="uid://dtfd366g1j00" path="res://resources/main_menu_button_pressed_style.tres" id="5_hqrxp"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_1qf77"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eypyq"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.12549, 0.384314, 0.486275, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_cpmo2"]
 font = ExtResource("1_r0bf7")
-font_size = 48
+shadow_size = 0
+shadow_offset = Vector2(0, 0)
 
 [node name="mainMenu" type="Node2D"]
 script = ExtResource("1_v40wr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0, 0.894118, 0.796078, 1)
 
 [node name="menuContainer" type="VBoxContainer" parent="."]
 offset_right = 320.0
@@ -22,7 +48,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 text = "GameTitle"
-label_settings = SubResource("LabelSettings_1qf77")
+label_settings = ExtResource("2_ckptl")
 horizontal_alignment = 1
 
 [node name="optionsContainer" type="HBoxContainer" parent="menuContainer"]
@@ -50,6 +76,11 @@ focus_previous = NodePath("../ExitButton")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_r0bf7")
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_b61lj")
+theme_override_styles/hover = ExtResource("4_kcoe6")
+theme_override_styles/pressed = ExtResource("5_hqrxp")
+theme_override_styles/disabled = ExtResource("3_b61lj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_eypyq")
 text = "Play"
 
 [node name="OptionsButton" type="Button" parent="menuContainer/optionsContainer/buttonsContainer"]
@@ -61,6 +92,11 @@ focus_previous = NodePath("../PlayButton")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_r0bf7")
 theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = ExtResource("3_b61lj")
+theme_override_styles/hover = ExtResource("4_kcoe6")
+theme_override_styles/pressed = ExtResource("5_hqrxp")
+theme_override_styles/disabled = ExtResource("3_b61lj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_eypyq")
 text = "Options"
 
 [node name="CreditsButton" type="Button" parent="menuContainer/optionsContainer/buttonsContainer"]
@@ -72,6 +108,11 @@ focus_previous = NodePath("../OptionsButton")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_r0bf7")
 theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = ExtResource("3_b61lj")
+theme_override_styles/hover = ExtResource("4_kcoe6")
+theme_override_styles/pressed = ExtResource("5_hqrxp")
+theme_override_styles/disabled = ExtResource("3_b61lj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_eypyq")
 text = "Credits"
 
 [node name="ExitButton" type="Button" parent="menuContainer/optionsContainer/buttonsContainer"]
@@ -84,12 +125,29 @@ focus_previous = NodePath("../CreditsButton")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_r0bf7")
 theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = ExtResource("3_b61lj")
+theme_override_styles/hover = ExtResource("4_kcoe6")
+theme_override_styles/pressed = ExtResource("5_hqrxp")
+theme_override_styles/disabled = ExtResource("3_b61lj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_eypyq")
 text = "Exit"
 
-[node name="topMargin2" type="MarginContainer" parent="menuContainer/optionsContainer/buttonsContainer"]
+[node name="bottomMargin" type="MarginContainer" parent="menuContainer/optionsContainer/buttonsContainer"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="rightMargin" type="MarginContainer" parent="menuContainer/optionsContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+
+[node name="versionString" type="Label" parent="."]
+custom_minimum_size = Vector2(0, 12)
+offset_top = 167.0
+offset_right = 320.0
+offset_bottom = 180.0
+text = "VersionString"
+label_settings = SubResource("LabelSettings_cpmo2")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[connection signal="pressed" from="menuContainer/optionsContainer/buttonsContainer/ExitButton" to="." method="_on_exit_button_pressed"]
