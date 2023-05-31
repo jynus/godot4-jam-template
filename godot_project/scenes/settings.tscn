@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://b7fkndcm0e336"]
+
+[ext_resource type="Script" path="res://scripts/settings.gd" id="1_h8lct"]
+[ext_resource type="LabelSettings" uid="uid://csrb5ilr7y6dy" path="res://resources/main_menu_title_label_setting.tres" id="2_bg3bq"]
+[ext_resource type="FontFile" uid="uid://btvwq11pvkgw7" path="res://assets/fonts/minimal5x7.ttf" id="3_otmxk"]
+[ext_resource type="StyleBox" uid="uid://67m76h2nyeyy" path="res://resources/main_menu_button_style.tres" id="4_32v16"]
+[ext_resource type="StyleBox" uid="uid://cscwrtv4vl12l" path="res://resources/main_menu_button_hover_style.tres" id="5_qw8e2"]
+[ext_resource type="StyleBox" uid="uid://dtfd366g1j00" path="res://resources/main_menu_button_pressed_style.tres" id="6_fr7sk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ogooh"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.12549, 0.384314, 0.486275, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[node name="settings" type="Node2D"]
+script = ExtResource("1_h8lct")
+
+[node name="background" type="ColorRect" parent="."]
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0, 0.894118, 0.796078, 1)
+
+[node name="menuContainer" type="VBoxContainer" parent="."]
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="topMargin" type="MarginContainer" parent="menuContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="title" type="Label" parent="menuContainer"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+text = "Settings"
+label_settings = ExtResource("2_bg3bq")
+horizontal_alignment = 1
+
+[node name="doneButton" type="Button" parent="menuContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+focus_next = NodePath("../PlayButton")
+focus_previous = NodePath("../CreditsButton")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_otmxk")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = ExtResource("4_32v16")
+theme_override_styles/hover = ExtResource("5_qw8e2")
+theme_override_styles/pressed = ExtResource("6_fr7sk")
+theme_override_styles/disabled = ExtResource("4_32v16")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ogooh")
+text = "Done"
+
+[connection signal="pressed" from="menuContainer/doneButton" to="." method="_on_done_button_pressed"]

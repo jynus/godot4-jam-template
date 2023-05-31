@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b326ovwmj62hf"]
+[gd_scene load_steps=10 format=3 uid="uid://b326ovwmj62hf"]
 
 [ext_resource type="FontFile" uid="uid://btvwq11pvkgw7" path="res://assets/fonts/minimal5x7.ttf" id="1_r0bf7"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_v40wr"]
@@ -6,6 +6,7 @@
 [ext_resource type="StyleBox" uid="uid://67m76h2nyeyy" path="res://resources/main_menu_button_style.tres" id="3_b61lj"]
 [ext_resource type="StyleBox" uid="uid://cscwrtv4vl12l" path="res://resources/main_menu_button_hover_style.tres" id="4_kcoe6"]
 [ext_resource type="StyleBox" uid="uid://dtfd366g1j00" path="res://resources/main_menu_button_pressed_style.tres" id="5_hqrxp"]
+[ext_resource type="FontFile" uid="uid://c1gg0yw02pyb5" path="res://assets/fonts/dogicapixel.ttf" id="7_4bt73"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eypyq"]
 bg_color = Color(0, 0, 0, 0)
@@ -24,7 +25,8 @@ expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_cpmo2"]
-font = ExtResource("1_r0bf7")
+font = ExtResource("7_4bt73")
+font_size = 8
 shadow_size = 0
 shadow_offset = Vector2(0, 0)
 
@@ -71,7 +73,7 @@ layout_mode = 2
 [node name="PlayButton" type="Button" parent="menuContainer/optionsContainer/buttonsContainer"]
 layout_mode = 2
 size_flags_vertical = 0
-focus_next = NodePath("../OptionsButton")
+focus_next = NodePath("../SettingsButton")
 focus_previous = NodePath("../ExitButton")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_r0bf7")
@@ -83,7 +85,7 @@ theme_override_styles/disabled = ExtResource("3_b61lj")
 theme_override_styles/focus = SubResource("StyleBoxFlat_eypyq")
 text = "Play"
 
-[node name="OptionsButton" type="Button" parent="menuContainer/optionsContainer/buttonsContainer"]
+[node name="SettingsButton" type="Button" parent="menuContainer/optionsContainer/buttonsContainer"]
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
 size_flags_vertical = 0
@@ -97,14 +99,14 @@ theme_override_styles/hover = ExtResource("4_kcoe6")
 theme_override_styles/pressed = ExtResource("5_hqrxp")
 theme_override_styles/disabled = ExtResource("3_b61lj")
 theme_override_styles/focus = SubResource("StyleBoxFlat_eypyq")
-text = "Options"
+text = "Settings"
 
 [node name="CreditsButton" type="Button" parent="menuContainer/optionsContainer/buttonsContainer"]
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
 size_flags_vertical = 0
 focus_next = NodePath("../ExitButton")
-focus_previous = NodePath("../OptionsButton")
+focus_previous = NodePath("../SettingsButton")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_r0bf7")
 theme_override_font_sizes/font_size = 16
@@ -148,6 +150,8 @@ offset_bottom = 180.0
 text = "VersionString"
 label_settings = SubResource("LabelSettings_cpmo2")
 horizontal_alignment = 2
-vertical_alignment = 2
+vertical_alignment = 1
 
+[connection signal="pressed" from="menuContainer/optionsContainer/buttonsContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="menuContainer/optionsContainer/buttonsContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="menuContainer/optionsContainer/buttonsContainer/ExitButton" to="." method="_on_exit_button_pressed"]
