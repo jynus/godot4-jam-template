@@ -1,0 +1,13 @@
+Dogica fonts: Copyright (c) 2020, Roberto Mocci (<patreon.com/rmocci | da.iosonor@gmail.com>
+Open Font License 1.1 https://scripts.sil.org/cms/scripts/page.php?item_id=OFL_web
+
+The FontStruction “Minimal5x7”
+(https://fontstruct.com/fontstructions/show/1158293) by “kheftel” is
+licensed under a Creative Commons Attribution license
+(http://creativecommons.org/licenses/by/3.0/).
+
+basis33 is a fixed-width bitmap font for programming and text editing, which contains Latin, Cyrillic, Greek and Hebrew characters. 
+Its designed by Manchson basing on Latin-only font Proggy Clean by Tristan Grimmer.
+basis33 is free/libre software, you are welcome to redistribute and/or modify it under the terms of MIT/Expat license; see LICENSE for details.
+
+
