@@ -1,7 +1,16 @@
 keys,en,es
-GameTitle,English Title,Título en español
+GameTitle,English Title,Título
+VersionString,v0.0.1,v0.0.1
 Play,Play,Jugar
-Options,Options,Opciones
+Settings,Settings,Configuración
 Credits,Credits,Créditos
 Exit,Exit,Salir
-VersionString,v0.0.1,v0.0.1
+Language,Language,Idioma
+Music,Music,Música
+SFX,SFX,Efectos
+Full screen,Full screen,Pantalla completa
+Done,Done,Hecho
+Level select,Level select,Seleción de nivel
+Back to main menu,Back to main menu,Menú principal
+
+

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://beenvk6rh341s"
+path="res://.godot/imported/Bit Bit Loop.mp3-c5e04923835393fc4979e1ee9a9e415a.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Bit Bit Loop.mp3"
+dest_files=["res://.godot/imported/Bit Bit Loop.mp3-c5e04923835393fc4979e1ee9a9e415a.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

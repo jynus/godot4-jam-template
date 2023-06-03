@@ -1,11 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7fkndcm0e336"]
+[gd_scene load_steps=13 format=3 uid="uid://b7fkndcm0e336"]
 
 [ext_resource type="Script" path="res://scripts/settings.gd" id="1_h8lct"]
 [ext_resource type="LabelSettings" uid="uid://csrb5ilr7y6dy" path="res://resources/main_menu_title_label_setting.tres" id="2_bg3bq"]
-[ext_resource type="FontFile" uid="uid://btvwq11pvkgw7" path="res://assets/fonts/minimal5x7.ttf" id="3_otmxk"]
+[ext_resource type="FontFile" uid="uid://c1gg0yw02pyb5" path="res://assets/fonts/dogicapixel.ttf" id="3_7vy80"]
 [ext_resource type="StyleBox" uid="uid://67m76h2nyeyy" path="res://resources/main_menu_button_style.tres" id="4_32v16"]
+[ext_resource type="FontFile" uid="uid://caj4jhhpy0ha7" path="res://assets/fonts/dogicabold.ttf" id="4_71ck0"]
+[ext_resource type="Theme" uid="uid://bb0pnhtq2j0hx" path="res://resources/option_button_style.tres" id="4_n7omh"]
 [ext_resource type="StyleBox" uid="uid://cscwrtv4vl12l" path="res://resources/main_menu_button_hover_style.tres" id="5_qw8e2"]
 [ext_resource type="StyleBox" uid="uid://dtfd366g1j00" path="res://resources/main_menu_button_pressed_style.tres" id="6_fr7sk"]
+[ext_resource type="AudioStream" uid="uid://ceubus6jrfita" path="res://assets/sfx/laserShoot.wav" id="8_lh8wa"]
+[ext_resource type="AudioStream" uid="uid://boyfyteopcvkv" path="res://assets/sfx/selectBlip.wav" id="9_eyxjc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7a45g"]
+font = ExtResource("3_7vy80")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ogooh"]
 bg_color = Color(0, 0, 0, 0)
@@ -40,23 +47,116 @@ custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="title" type="Label" parent="menuContainer"]
-custom_minimum_size = Vector2(0, 35)
+custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 text = "Settings"
 label_settings = ExtResource("2_bg3bq")
 horizontal_alignment = 1
 
+[node name="optionsMargin" type="MarginContainer" parent="menuContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="Language" type="HBoxContainer" parent="menuContainer"]
+layout_mode = 2
+
+[node name="startMargin" type="MarginContainer" parent="menuContainer/Language"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="LanguageLabel" type="Label" parent="menuContainer/Language"]
+layout_mode = 2
+text = "Language"
+label_settings = SubResource("LabelSettings_7a45g")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LanguageOption" type="OptionButton" parent="menuContainer/Language"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("4_n7omh")
+flat = true
+item_count = 2
+selected = 0
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "Español"
+popup/item_1/id = 1
+
+[node name="music" type="HBoxContainer" parent="menuContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+alignment = 2
+
+[node name="musicLabel" type="Label" parent="menuContainer/music"]
+layout_mode = 2
+text = "Music"
+label_settings = SubResource("LabelSettings_7a45g")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="musicVolume" type="HSlider" parent="menuContainer/music"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_value = 1.3
+step = 0.05
+
+[node name="rightMargin" type="MarginContainer" parent="menuContainer/music"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="sfx" type="HBoxContainer" parent="menuContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+alignment = 2
+
+[node name="sfxLabel" type="Label" parent="menuContainer/sfx"]
+layout_mode = 2
+text = "SFX"
+label_settings = SubResource("LabelSettings_7a45g")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="sfxVolume" type="HSlider" parent="menuContainer/sfx"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_value = 1.3
+step = 0.05
+
+[node name="rightMargin" type="MarginContainer" parent="menuContainer/sfx"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="fullScreenCheckbox" type="CheckBox" parent="menuContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_7vy80")
+theme_override_font_sizes/font_size = 16
+text = "Full screen"
+icon_alignment = 1
+
 [node name="doneButton" type="Button" parent="menuContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(200, 20)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 focus_next = NodePath("../PlayButton")
 focus_previous = NodePath("../CreditsButton")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("3_otmxk")
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("4_71ck0")
+theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = ExtResource("4_32v16")
 theme_override_styles/hover = ExtResource("5_qw8e2")
 theme_override_styles/pressed = ExtResource("6_fr7sk")
@@ -64,4 +164,17 @@ theme_override_styles/disabled = ExtResource("4_32v16")
 theme_override_styles/focus = SubResource("StyleBoxFlat_ogooh")
 text = "Done"
 
+[node name="testSfxPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("8_lh8wa")
+mix_target = 2
+bus = &"sfx"
+
+[node name="blip" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_eyxjc")
+
+[connection signal="item_selected" from="menuContainer/Language/LanguageOption" to="." method="_on_language_option_item_selected"]
+[connection signal="value_changed" from="menuContainer/music/musicVolume" to="." method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="menuContainer/sfx/sfxVolume" to="." method="_on_sfx_volume_value_changed"]
+[connection signal="toggled" from="menuContainer/fullScreenCheckbox" to="." method="_on_full_screen_checkbox_toggled"]
 [connection signal="pressed" from="menuContainer/doneButton" to="." method="_on_done_button_pressed"]

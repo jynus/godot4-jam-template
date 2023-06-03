@@ -1,7 +1,13 @@
 extends Node2D
 
 @onready var exit_button : Button = %ExitButton
-@onready var play_button = $menuContainer/optionsContainer/buttonsContainer/PlayButton
+@onready var play_button : Button = $menuContainer/optionsContainer/buttonsContainer/PlayButton
+@onready var blip : AudioStreamPlayer = $blip
+
+func _init():
+	# Load settings config
+	var user_settings = UserSettings.new()
+	user_settings.load_settings()
 
 func _ready():
 	# Disable exit button if we are on the web
@@ -23,14 +29,30 @@ func show_credits():
 
 func _on_settings_button_pressed():
 	"""Show the settings menu"""
+	blip.play()
+	await blip.finished
 	show_settings()
 
 func exit_game():
 	""""Exit to OS"""
 	get_tree().quit()
 
+func start_new_game():
+	"""Start new play session"""
+	get_tree().change_scene_to_file("res://scenes/level_select.tscn")
+
 func _on_credits_button_pressed():
+	blip.play()
+	await blip.finished
 	show_credits()
 
 func _on_exit_button_pressed():
+	blip.play()
+	await blip.finished
 	exit_game()
+
+
+func _on_play_button_pressed():
+	blip.play()
+	await blip.finished
+	start_new_game()

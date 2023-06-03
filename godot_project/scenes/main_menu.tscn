@@ -1,12 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://b326ovwmj62hf"]
+[gd_scene load_steps=12 format=3 uid="uid://b326ovwmj62hf"]
 
-[ext_resource type="FontFile" uid="uid://btvwq11pvkgw7" path="res://assets/fonts/minimal5x7.ttf" id="1_r0bf7"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_v40wr"]
 [ext_resource type="LabelSettings" uid="uid://csrb5ilr7y6dy" path="res://resources/main_menu_title_label_setting.tres" id="2_ckptl"]
+[ext_resource type="FontFile" uid="uid://caj4jhhpy0ha7" path="res://assets/fonts/dogicabold.ttf" id="3_5e6s0"]
 [ext_resource type="StyleBox" uid="uid://67m76h2nyeyy" path="res://resources/main_menu_button_style.tres" id="3_b61lj"]
+[ext_resource type="FontFile" uid="uid://160hm44pryh4" path="res://assets/fonts/dogica.ttf" id="3_xem84"]
 [ext_resource type="StyleBox" uid="uid://cscwrtv4vl12l" path="res://resources/main_menu_button_hover_style.tres" id="4_kcoe6"]
 [ext_resource type="StyleBox" uid="uid://dtfd366g1j00" path="res://resources/main_menu_button_pressed_style.tres" id="5_hqrxp"]
 [ext_resource type="FontFile" uid="uid://c1gg0yw02pyb5" path="res://assets/fonts/dogicapixel.ttf" id="7_4bt73"]
+[ext_resource type="AudioStream" uid="uid://boyfyteopcvkv" path="res://assets/sfx/selectBlip.wav" id="9_s3qw2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eypyq"]
 bg_color = Color(0, 0, 0, 0)
@@ -43,15 +45,16 @@ offset_right = 320.0
 offset_bottom = 180.0
 
 [node name="TopMargin" type="MarginContainer" parent="menuContainer"]
-custom_minimum_size = Vector2(0, 10)
+custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 
 [node name="Title" type="Label" parent="menuContainer"]
-custom_minimum_size = Vector2(0, 35)
+custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 text = "GameTitle"
 label_settings = ExtResource("2_ckptl")
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="optionsContainer" type="HBoxContainer" parent="menuContainer"]
 layout_mode = 2
@@ -59,7 +62,7 @@ size_flags_vertical = 3
 alignment = 1
 
 [node name="leftMargin" type="MarginContainer" parent="menuContainer/optionsContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(95, 0)
 layout_mode = 2
 
 [node name="buttonsContainer" type="VBoxContainer" parent="menuContainer/optionsContainer"]
@@ -71,13 +74,14 @@ custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="PlayButton" type="Button" parent="menuContainer/optionsContainer/buttonsContainer"]
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 size_flags_vertical = 0
 focus_next = NodePath("../SettingsButton")
 focus_previous = NodePath("../ExitButton")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("1_r0bf7")
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("3_5e6s0")
+theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = ExtResource("3_b61lj")
 theme_override_styles/hover = ExtResource("4_kcoe6")
 theme_override_styles/pressed = ExtResource("5_hqrxp")
@@ -86,14 +90,14 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_eypyq")
 text = "Play"
 
 [node name="SettingsButton" type="Button" parent="menuContainer/optionsContainer/buttonsContainer"]
-custom_minimum_size = Vector2(25, 0)
+custom_minimum_size = Vector2(25, 20)
 layout_mode = 2
 size_flags_vertical = 0
 focus_next = NodePath("../CreditsButton")
 focus_previous = NodePath("../PlayButton")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("1_r0bf7")
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("3_xem84")
+theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = ExtResource("3_b61lj")
 theme_override_styles/hover = ExtResource("4_kcoe6")
 theme_override_styles/pressed = ExtResource("5_hqrxp")
@@ -102,14 +106,14 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_eypyq")
 text = "Settings"
 
 [node name="CreditsButton" type="Button" parent="menuContainer/optionsContainer/buttonsContainer"]
-custom_minimum_size = Vector2(25, 0)
+custom_minimum_size = Vector2(25, 20)
 layout_mode = 2
 size_flags_vertical = 0
 focus_next = NodePath("../ExitButton")
 focus_previous = NodePath("../SettingsButton")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("1_r0bf7")
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("3_xem84")
+theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = ExtResource("3_b61lj")
 theme_override_styles/hover = ExtResource("4_kcoe6")
 theme_override_styles/pressed = ExtResource("5_hqrxp")
@@ -119,14 +123,14 @@ text = "Credits"
 
 [node name="ExitButton" type="Button" parent="menuContainer/optionsContainer/buttonsContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(25, 0)
+custom_minimum_size = Vector2(25, 20)
 layout_mode = 2
 size_flags_vertical = 0
 focus_next = NodePath("../PlayButton")
 focus_previous = NodePath("../CreditsButton")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("1_r0bf7")
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("3_xem84")
+theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = ExtResource("3_b61lj")
 theme_override_styles/hover = ExtResource("4_kcoe6")
 theme_override_styles/pressed = ExtResource("5_hqrxp")
@@ -139,7 +143,7 @@ custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="rightMargin" type="MarginContainer" parent="menuContainer/optionsContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(95, 0)
 layout_mode = 2
 
 [node name="versionString" type="Label" parent="."]
@@ -152,6 +156,10 @@ label_settings = SubResource("LabelSettings_cpmo2")
 horizontal_alignment = 2
 vertical_alignment = 1
 
+[node name="blip" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_s3qw2")
+
+[connection signal="pressed" from="menuContainer/optionsContainer/buttonsContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="menuContainer/optionsContainer/buttonsContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="menuContainer/optionsContainer/buttonsContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="menuContainer/optionsContainer/buttonsContainer/ExitButton" to="." method="_on_exit_button_pressed"]

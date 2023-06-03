@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cp76wk0hhmwag"]
+[gd_scene load_steps=14 format=3 uid="uid://cp76wk0hhmwag"]
 
 [ext_resource type="LabelSettings" uid="uid://csrb5ilr7y6dy" path="res://resources/main_menu_title_label_setting.tres" id="1_c4tx6"]
 [ext_resource type="Script" path="res://scripts/credits.gd" id="1_o3suw"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://qbxjx8w8ke10" path="res://assets/sprites/twitter.png" id="7_5hy4m"]
 [ext_resource type="Texture2D" uid="uid://byerhmo73ar7s" path="res://assets/sprites/itchio.png" id="8_0bwxl"]
 [ext_resource type="Texture2D" uid="uid://bfsncibogmah4" path="res://assets/sprites/web.png" id="9_g2a5j"]
+[ext_resource type="AudioStream" uid="uid://boyfyteopcvkv" path="res://assets/sfx/selectBlip.wav" id="12_cwgdm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hugtt"]
 bg_color = Color(0, 0, 0, 0)
@@ -167,6 +168,9 @@ text = "Done"
 [node name="bottomMargin" type="MarginContainer" parent="menuContainer"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
+
+[node name="blip" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_cwgdm")
 
 [connection signal="pressed" from="menuContainer/optionsContainer/socialButtonContainer/twitterButton" to="." method="_on_twitter_button_pressed"]
 [connection signal="pressed" from="menuContainer/optionsContainer/socialButtonContainer/itchioButton" to="." method="_on_itchio_button_pressed"]

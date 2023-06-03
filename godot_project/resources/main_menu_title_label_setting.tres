@@ -1,7 +1,8 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://csrb5ilr7y6dy"]
 
-[ext_resource type="FontFile" uid="uid://btvwq11pvkgw7" path="res://assets/fonts/minimal5x7.ttf" id="1_bdjt2"]
+[ext_resource type="FontFile" uid="uid://csfgtka180pkw" path="res://assets/fonts/dogicapixelbold.ttf" id="1_gf53h"]
 
 [resource]
-font = ExtResource("1_bdjt2")
-font_size = 48
+font = ExtResource("1_gf53h")
+font_size = 24
+shadow_size = 0
