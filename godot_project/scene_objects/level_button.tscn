@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://cogud6ervh4av"]
+
+[ext_resource type="FontFile" uid="uid://c1gg0yw02pyb5" path="res://assets/fonts/dogicapixel.ttf" id="1_6l6ud"]
+[ext_resource type="StyleBox" uid="uid://67m76h2nyeyy" path="res://resources/main_menu_button_style.tres" id="3_g2lte"]
+[ext_resource type="StyleBox" uid="uid://cscwrtv4vl12l" path="res://resources/main_menu_button_hover_style.tres" id="4_o6xu0"]
+[ext_resource type="StyleBox" uid="uid://dtfd366g1j00" path="res://resources/main_menu_button_pressed_style.tres" id="5_faphc"]
+[ext_resource type="StyleBox" uid="uid://yyu1pcyii40b" path="res://resources/main_menu_button_disabled_style.tres" id="5_skgxo"]
+[ext_resource type="StyleBox" uid="uid://cmuo5ywu5bdpb" path="res://resources/main_menu_button_focus_style.tres" id="6_k4ddo"]
+[ext_resource type="Script" path="res://scripts/level_button.gd" id="7_qsbpd"]
+
+[node name="level_button" type="Button"]
+custom_minimum_size = Vector2(20, 20)
+offset_left = -19.0
+offset_top = -12.0
+offset_right = 19.0
+offset_bottom = 12.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.431373, 0.427451, 0.427451, 1)
+theme_override_fonts/font = ExtResource("1_6l6ud")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = ExtResource("3_g2lte")
+theme_override_styles/hover = ExtResource("4_o6xu0")
+theme_override_styles/pressed = ExtResource("5_faphc")
+theme_override_styles/disabled = ExtResource("5_skgxo")
+theme_override_styles/focus = ExtResource("6_k4ddo")
+text = "01"
+script = ExtResource("7_qsbpd")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

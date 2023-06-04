@@ -1,11 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://b7fkndcm0e336"]
+[gd_scene load_steps=15 format=3 uid="uid://b7fkndcm0e336"]
 
 [ext_resource type="Script" path="res://scripts/settings.gd" id="1_h8lct"]
 [ext_resource type="LabelSettings" uid="uid://csrb5ilr7y6dy" path="res://resources/main_menu_title_label_setting.tres" id="2_bg3bq"]
 [ext_resource type="FontFile" uid="uid://c1gg0yw02pyb5" path="res://assets/fonts/dogicapixel.ttf" id="3_7vy80"]
 [ext_resource type="StyleBox" uid="uid://67m76h2nyeyy" path="res://resources/main_menu_button_style.tres" id="4_32v16"]
 [ext_resource type="FontFile" uid="uid://caj4jhhpy0ha7" path="res://assets/fonts/dogicabold.ttf" id="4_71ck0"]
-[ext_resource type="Theme" uid="uid://bb0pnhtq2j0hx" path="res://resources/option_button_style.tres" id="4_n7omh"]
 [ext_resource type="StyleBox" uid="uid://cscwrtv4vl12l" path="res://resources/main_menu_button_hover_style.tres" id="5_qw8e2"]
 [ext_resource type="StyleBox" uid="uid://dtfd366g1j00" path="res://resources/main_menu_button_pressed_style.tres" id="6_fr7sk"]
 [ext_resource type="AudioStream" uid="uid://ceubus6jrfita" path="res://assets/sfx/laserShoot.wav" id="8_lh8wa"]
@@ -13,6 +12,17 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_7a45g"]
 font = ExtResource("3_7vy80")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_odafv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xau5"]
+bg_color = Color(1, 0.345098, 0.133333, 1)
+
+[sub_resource type="Theme" id="Theme_42gtq"]
+default_font = ExtResource("3_7vy80")
+default_font_size = 16
+OptionButton/styles/hover = SubResource("StyleBoxFlat_odafv")
+OptionButton/styles/normal = SubResource("StyleBoxFlat_5xau5")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ogooh"]
 bg_color = Color(0, 0, 0, 0)
@@ -76,7 +86,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-theme = ExtResource("4_n7omh")
+theme = SubResource("Theme_42gtq")
 flat = true
 item_count = 2
 selected = 0

@@ -1,12 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://3dgtundptfy8"]
+[gd_scene load_steps=13 format=3 uid="uid://3dgtundptfy8"]
 
 [ext_resource type="Script" path="res://scripts/level_select.gd" id="1_rs3vw"]
 [ext_resource type="LabelSettings" uid="uid://tje0ygjwilaf" path="res://resources/small_title_label_settings.tres" id="2_gj63y"]
 [ext_resource type="FontFile" uid="uid://160hm44pryh4" path="res://assets/fonts/dogica.ttf" id="3_5ksio"]
+[ext_resource type="Texture2D" uid="uid://6c7mk8gmqv7q" path="res://assets/sprites/left_arrow.webp" id="3_y6wxh"]
+[ext_resource type="Texture2D" uid="uid://bapxca70g57pj" path="res://assets/sprites/right_arrow.webp" id="4_cij7b"]
 [ext_resource type="StyleBox" uid="uid://67m76h2nyeyy" path="res://resources/main_menu_button_style.tres" id="6_ua4t1"]
 [ext_resource type="StyleBox" uid="uid://cscwrtv4vl12l" path="res://resources/main_menu_button_hover_style.tres" id="7_vep0o"]
 [ext_resource type="StyleBox" uid="uid://dtfd366g1j00" path="res://resources/main_menu_button_pressed_style.tres" id="8_lcgvi"]
 [ext_resource type="AudioStream" uid="uid://boyfyteopcvkv" path="res://assets/sfx/selectBlip.wav" id="12_apimo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hwumb"]
+font = ExtResource("3_5ksio")
+shadow_size = 0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m2gvb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hugtt"]
 bg_color = Color(0, 0, 0, 0)
@@ -36,16 +44,64 @@ color = Color(0, 0.894118, 0.796078, 1)
 offset_right = 320.0
 offset_bottom = 180.0
 
-[node name="topMargin" type="MarginContainer" parent="menuContainer"]
-custom_minimum_size = Vector2(0, 10)
+[node name="titleTopMargin" type="MarginContainer" parent="menuContainer"]
+custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 
 [node name="title" type="Label" parent="menuContainer"]
-custom_minimum_size = Vector2(0, 35)
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 text = "Level select"
 label_settings = ExtResource("2_gj63y")
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="subtitle_world" type="Label" parent="menuContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+text = "world 1"
+label_settings = SubResource("LabelSettings_hwumb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="titleBottomMargin" type="MarginContainer" parent="menuContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="menuContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="menuContainer/HBoxContainer"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="previousWorldButton" type="Button" parent="menuContainer/HBoxContainer/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxEmpty_m2gvb")
+icon = ExtResource("3_y6wxh")
+icon_alignment = 1
+
+[node name="levelsContainer" type="GridContainer" parent="menuContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 4
+
+[node name="CenterContainer2" type="CenterContainer" parent="menuContainer/HBoxContainer"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+
+[node name="nextWorldButton" type="Button" parent="menuContainer/HBoxContainer/CenterContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxEmpty_m2gvb")
+icon = ExtResource("4_cij7b")
+icon_alignment = 1
 
 [node name="backButton" type="Button" parent="menuContainer"]
 unique_name_in_owner = true
@@ -72,4 +128,6 @@ layout_mode = 2
 [node name="blip" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_apimo")
 
+[connection signal="pressed" from="menuContainer/HBoxContainer/CenterContainer/previousWorldButton" to="." method="_on_previous_world_button_pressed"]
+[connection signal="pressed" from="menuContainer/HBoxContainer/CenterContainer2/nextWorldButton" to="." method="_on_next_world_button_pressed"]
 [connection signal="pressed" from="menuContainer/backButton" to="." method="_on_back_button_pressed"]
