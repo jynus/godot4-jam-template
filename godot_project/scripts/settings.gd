@@ -4,9 +4,10 @@ class_name UserSettings extends Node2D
 @onready var full_screen_checkbox : CheckBox = %fullScreenCheckbox
 @onready var music_volume = %musicVolume
 @onready var sfx_volume = %sfxVolume
-@onready var test_sfx_player = %testSfxPlayer
 @onready var language_option = %LanguageOption
 @onready var blip = $blip
+
+@export var default_volume : float = 0.4
 
 var SETTINGS_FILE_PATH : String = "user://settings.cfg"
 var _configFile : ConfigFile
@@ -41,9 +42,9 @@ func load_settings():
 	# apply settings
 	var window_mode = _configFile.get_value("settings", "window_mode", DisplayServer.WINDOW_MODE_WINDOWED)
 	set_window_mode(window_mode)
-	var music_volume_config = _configFile.get_value("settings", "music_volume", 0.6)
+	var music_volume_config = _configFile.get_value("settings", "music_volume", default_volume)
 	set_volume("music", music_volume_config)
-	var sfx_volume_config = _configFile.get_value("settings", "sfx_volume", 0.6)
+	var sfx_volume_config = _configFile.get_value("settings", "sfx_volume", default_volume)
 	set_volume("sfx", sfx_volume_config)
 	
 	var default_language = "es" if TranslationServer.get_locale().begins_with("es") else "en"
@@ -97,7 +98,7 @@ func _on_music_volume_value_changed(value):
 
 func _on_sfx_volume_value_changed(value):
 	apply_volume("sfx", value)
-	test_sfx_player.play()
+	blip.play()
 
 func set_language(lang: String):
 	TranslationServer.set_locale(lang)

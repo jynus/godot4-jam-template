@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg8iotoxg8rsy"]
+
+[ext_resource type="AudioStream" uid="uid://boyfyteopcvkv" path="res://assets/sfx/selectBlip.wav" id="1_s2n05"]
+
+[node name="blip" type="AudioStreamPlayer"]
+stream = ExtResource("1_s2n05")
+volume_db = -10.0
+bus = &"sfx"

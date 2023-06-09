@@ -1,14 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://b326ovwmj62hf"]
+[gd_scene load_steps=13 format=3 uid="uid://b326ovwmj62hf"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_v40wr"]
 [ext_resource type="LabelSettings" uid="uid://csrb5ilr7y6dy" path="res://resources/main_menu_title_label_setting.tres" id="2_ckptl"]
+[ext_resource type="PackedScene" uid="uid://k635iu86fy37" path="res://scene_objects/menu_background.tscn" id="2_vuhek"]
 [ext_resource type="FontFile" uid="uid://caj4jhhpy0ha7" path="res://assets/fonts/dogicabold.ttf" id="3_5e6s0"]
 [ext_resource type="StyleBox" uid="uid://67m76h2nyeyy" path="res://resources/main_menu_button_style.tres" id="3_b61lj"]
 [ext_resource type="FontFile" uid="uid://160hm44pryh4" path="res://assets/fonts/dogica.ttf" id="3_xem84"]
 [ext_resource type="StyleBox" uid="uid://cscwrtv4vl12l" path="res://resources/main_menu_button_hover_style.tres" id="4_kcoe6"]
 [ext_resource type="StyleBox" uid="uid://dtfd366g1j00" path="res://resources/main_menu_button_pressed_style.tres" id="5_hqrxp"]
 [ext_resource type="FontFile" uid="uid://c1gg0yw02pyb5" path="res://assets/fonts/dogicapixel.ttf" id="7_4bt73"]
-[ext_resource type="AudioStream" uid="uid://boyfyteopcvkv" path="res://assets/sfx/selectBlip.wav" id="9_s3qw2"]
+[ext_resource type="PackedScene" uid="uid://dg8iotoxg8rsy" path="res://scene_objects/blip.tscn" id="10_erdpa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eypyq"]
 bg_color = Color(0, 0, 0, 0)
@@ -35,10 +36,7 @@ shadow_offset = Vector2(0, 0)
 [node name="mainMenu" type="Node2D"]
 script = ExtResource("1_v40wr")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 320.0
-offset_bottom = 180.0
-color = Color(0, 0.894118, 0.796078, 1)
+[node name="backgroudMenu" parent="." instance=ExtResource("2_vuhek")]
 
 [node name="menuContainer" type="VBoxContainer" parent="."]
 offset_right = 320.0
@@ -156,8 +154,7 @@ label_settings = SubResource("LabelSettings_cpmo2")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="blip" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_s3qw2")
+[node name="blip" parent="." instance=ExtResource("10_erdpa")]
 
 [connection signal="pressed" from="menuContainer/optionsContainer/buttonsContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="menuContainer/optionsContainer/buttonsContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
