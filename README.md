@@ -14,7 +14,7 @@ An empty template for a 2d retro-style game (320x180 resolution) with the most c
 ![Main menu](screenshots/screenshot1.png)
 ![Localized setting menu](screenshots/screenshot2.png)
 
-##TODO
+## TODO
 * Level transitions
 * Music fade outs and ins
 * Finishing next level selection/completed level logic
