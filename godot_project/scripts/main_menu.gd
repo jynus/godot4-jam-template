@@ -3,6 +3,7 @@ extends Node2D
 @onready var exit_button : Button = %ExitButton
 @onready var play_button : Button = $menuContainer/optionsContainer/buttonsContainer/PlayButton
 @onready var blip : AudioStreamPlayer = $blip
+@onready var settings := $settings
 
 func _init():
 	# Load settings config
@@ -15,13 +16,14 @@ func _ready():
 		exit_button.hide()
 	if Input.get_connected_joypads().size() > 0:
 		play_button.grab_focus()
+	BackgroundMusic.play_song("menu")
 
 func _process(_delta):
 	pass
 
 func show_settings():
 	"""Show the settings screen"""
-	get_tree().change_scene_to_file("res://scenes/settings.tscn")
+	settings.visible = true
 
 func show_credits():
 	"""Show the credits screen"""
@@ -30,7 +32,6 @@ func show_credits():
 func _on_settings_button_pressed():
 	"""Show the settings menu"""
 	blip.play()
-	await blip.finished
 	show_settings()
 
 func exit_game():

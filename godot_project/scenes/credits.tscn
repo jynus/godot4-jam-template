@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cp76wk0hhmwag"]
+[gd_scene load_steps=16 format=3 uid="uid://cp76wk0hhmwag"]
 
 [ext_resource type="LabelSettings" uid="uid://csrb5ilr7y6dy" path="res://resources/main_menu_title_label_setting.tres" id="1_c4tx6"]
 [ext_resource type="Script" path="res://scripts/credits.gd" id="1_o3suw"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://byerhmo73ar7s" path="res://assets/sprites/itchio.png" id="8_0bwxl"]
 [ext_resource type="Texture2D" uid="uid://bfsncibogmah4" path="res://assets/sprites/web.png" id="9_g2a5j"]
 [ext_resource type="PackedScene" uid="uid://dg8iotoxg8rsy" path="res://scene_objects/blip.tscn" id="13_4wf1y"]
+[ext_resource type="PackedScene" uid="uid://oq5258by1a1k" path="res://scene_objects/menu_button.tscn" id="13_25eo3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hugtt"]
 bg_color = Color(0, 0, 0, 0)
@@ -145,23 +146,9 @@ icon_alignment = 1
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 
-[node name="doneButton" type="Button" parent="menuContainer"]
+[node name="doneButton" parent="menuContainer" instance=ExtResource("13_25eo3")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-focus_next = NodePath("../PlayButton")
-focus_previous = NodePath("../CreditsButton")
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_5ad5r")
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = ExtResource("4_3veic")
-theme_override_styles/hover = ExtResource("5_7nd3c")
-theme_override_styles/pressed = ExtResource("6_3f04u")
-theme_override_styles/disabled = ExtResource("4_3veic")
-theme_override_styles/focus = SubResource("StyleBoxFlat_hugtt")
-text = "Done"
 
 [node name="bottomMargin" type="MarginContainer" parent="menuContainer"]
 custom_minimum_size = Vector2(0, 10)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b326ovwmj62hf"]
+[gd_scene load_steps=14 format=3 uid="uid://b326ovwmj62hf"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_v40wr"]
 [ext_resource type="LabelSettings" uid="uid://csrb5ilr7y6dy" path="res://resources/main_menu_title_label_setting.tres" id="2_ckptl"]
@@ -10,6 +10,7 @@
 [ext_resource type="StyleBox" uid="uid://dtfd366g1j00" path="res://resources/main_menu_button_pressed_style.tres" id="5_hqrxp"]
 [ext_resource type="FontFile" uid="uid://c1gg0yw02pyb5" path="res://assets/fonts/dogicapixel.ttf" id="7_4bt73"]
 [ext_resource type="PackedScene" uid="uid://dg8iotoxg8rsy" path="res://scene_objects/blip.tscn" id="10_erdpa"]
+[ext_resource type="PackedScene" uid="uid://b7fkndcm0e336" path="res://scene_objects/settings.tscn" id="11_5pplk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eypyq"]
 bg_color = Color(0, 0, 0, 0)
@@ -155,6 +156,9 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="blip" parent="." instance=ExtResource("10_erdpa")]
+
+[node name="settings" parent="." instance=ExtResource("11_5pplk")]
+visible = false
 
 [connection signal="pressed" from="menuContainer/optionsContainer/buttonsContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="menuContainer/optionsContainer/buttonsContainer/SettingsButton" to="." method="_on_settings_button_pressed"]

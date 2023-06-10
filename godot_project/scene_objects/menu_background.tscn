@@ -2,6 +2,21 @@
 
 [ext_resource type="Texture2D" uid="uid://cc6em00s7wwqi" path="res://assets/sprites/background.webp" id="1_on8fx"]
 
+[sub_resource type="Animation" id="Animation_hjc8r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 320, 180)]
+}
+
 [sub_resource type="Animation" id="Animation_ecm3m"]
 resource_name = "animate_menu"
 loop_mode = 1
@@ -16,21 +31,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Rect2(0, 128, 320, 180), Rect2(128, 0, 320, 180)]
-}
-
-[sub_resource type="Animation" id="Animation_hjc8r"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(0, 0, 320, 180)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_as2xe"]

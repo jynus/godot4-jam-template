@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckavc8eqedhf6"]
+
+[ext_resource type="PackedScene" uid="uid://c4724smqdfkk6" path="res://scene_objects/pause_menu.tscn" id="1_5146n"]
+
+[node name="level" type="Node2D"]
+
+[node name="pauseMenu" parent="." instance=ExtResource("1_5146n")]
+visible = false

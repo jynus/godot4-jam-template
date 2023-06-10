@@ -54,9 +54,9 @@ func load_settings():
 func _process(_delta):
 	pass
 
-func return_to_main_menu():
-	"""Close the settings screen and return to main menu"""
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+func hide_settings():
+	"""Close the settings screen"""
+	visible = false
 
 func set_window_mode(custom_window_mode : DisplayServer.WindowMode):
 	DisplayServer.window_set_mode(custom_window_mode)
@@ -72,8 +72,7 @@ func apply_fullscreen(fullscreen : bool):
 
 func _on_done_button_pressed():
 	blip.play()
-	await blip.finished
-	return_to_main_menu()
+	hide_settings()
 
 func _on_full_screen_checkbox_toggled(button_pressed):
 	blip.play()

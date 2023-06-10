@@ -1,11 +1,12 @@
 [gd_scene load_steps=2 format=3 uid="uid://d2he8iuv3dlpj"]
 
-[ext_resource type="AudioStream" uid="uid://beenvk6rh341s" path="res://assets/music/Bit Bit Loop.mp3" id="1_fjvuf"]
+[ext_resource type="Script" path="res://scripts/background_music.gd" id="1_khk71"]
 
 [node name="backgroundMusic" type="Node"]
+process_mode = 3
+script = ExtResource("1_khk71")
 
 [node name="musicPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_fjvuf")
+unique_name_in_owner = true
 volume_db = -20.0
-autoplay = true
 bus = &"music"

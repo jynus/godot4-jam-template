@@ -106,7 +106,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 20)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 10
 focus_next = NodePath("../PlayButton")
 focus_previous = NodePath("../CreditsButton")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -120,8 +120,9 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_hugtt")
 text = "Back to main menu"
 
 [node name="bottomMargin" type="MarginContainer" parent="menuContainer"]
-custom_minimum_size = Vector2(0, 10)
+custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
+size_flags_vertical = 8
 
 [node name="blip" parent="." instance=ExtResource("9_6gfxd")]
 

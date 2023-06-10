@@ -1,0 +1,82 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4724smqdfkk6"]
+
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_3hvvb"]
+[ext_resource type="PackedScene" uid="uid://oq5258by1a1k" path="res://scene_objects/menu_button.tscn" id="1_fht2j"]
+[ext_resource type="LabelSettings" uid="uid://tje0ygjwilaf" path="res://resources/small_title_label_settings.tres" id="1_o8dpe"]
+[ext_resource type="PackedScene" uid="uid://b7fkndcm0e336" path="res://scene_objects/settings.tscn" id="4_cgqpe"]
+[ext_resource type="PackedScene" uid="uid://dg8iotoxg8rsy" path="res://scene_objects/blip.tscn" id="5_cwhfe"]
+
+[node name="pauseMenu" type="Control"]
+process_mode = 3
+custom_minimum_size = Vector2(320, 180)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_3hvvb")
+
+[node name="background" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(320, 180)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.501961, 0.501961, 0.501961, 0.501961)
+
+[node name="pauseMenu" type="HBoxContainer" parent="background"]
+custom_minimum_size = Vector2(320, 180)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LeftMargin" type="MarginContainer" parent="background/pauseMenu"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="background/pauseMenu"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="background/pauseMenu/VBoxContainer"]
+layout_mode = 2
+text = "Pause"
+label_settings = ExtResource("1_o8dpe")
+horizontal_alignment = 1
+
+[node name="returnButton" parent="background/pauseMenu/VBoxContainer" instance=ExtResource("1_fht2j")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Return to game"
+
+[node name="settingsButton" parent="background/pauseMenu/VBoxContainer" instance=ExtResource("1_fht2j")]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Settings"
+
+[node name="mainMenuButton" parent="background/pauseMenu/VBoxContainer" instance=ExtResource("1_fht2j")]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Back to main menu"
+
+[node name="RightMargin" type="MarginContainer" parent="background/pauseMenu"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="settings" parent="." instance=ExtResource("4_cgqpe")]
+process_mode = 2
+visible = false
+
+[node name="blip" parent="." instance=ExtResource("5_cwhfe")]
+
+[connection signal="pressed" from="background/pauseMenu/VBoxContainer/returnButton" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="background/pauseMenu/VBoxContainer/settingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="background/pauseMenu/VBoxContainer/mainMenuButton" to="." method="_on_main_menu_button_pressed"]

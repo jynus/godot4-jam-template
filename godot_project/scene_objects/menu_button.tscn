@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://oq5258by1a1k"]
+
+[ext_resource type="FontFile" uid="uid://160hm44pryh4" path="res://assets/fonts/dogica.ttf" id="1_0vyq2"]
+[ext_resource type="StyleBox" uid="uid://67m76h2nyeyy" path="res://resources/main_menu_button_style.tres" id="2_1dldy"]
+[ext_resource type="StyleBox" uid="uid://cscwrtv4vl12l" path="res://resources/main_menu_button_hover_style.tres" id="3_cn4ql"]
+[ext_resource type="StyleBox" uid="uid://dtfd366g1j00" path="res://resources/main_menu_button_pressed_style.tres" id="4_wxxxf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hugtt"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.12549, 0.384314, 0.486275, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[node name="doneButton" type="Button"]
+custom_minimum_size = Vector2(200, 0)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_next = NodePath("../PlayButton")
+focus_previous = NodePath("../CreditsButton")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_0vyq2")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = ExtResource("2_1dldy")
+theme_override_styles/hover = ExtResource("3_cn4ql")
+theme_override_styles/pressed = ExtResource("4_wxxxf")
+theme_override_styles/disabled = ExtResource("2_1dldy")
+theme_override_styles/focus = SubResource("StyleBoxFlat_hugtt")
+text = "Done"

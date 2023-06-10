@@ -1,0 +1,180 @@
+[gd_scene load_steps=15 format=3 uid="uid://b7fkndcm0e336"]
+
+[ext_resource type="Script" path="res://scripts/settings.gd" id="1_6tbik"]
+[ext_resource type="PackedScene" uid="uid://k635iu86fy37" path="res://scene_objects/menu_background.tscn" id="2_y53hl"]
+[ext_resource type="LabelSettings" uid="uid://csrb5ilr7y6dy" path="res://resources/main_menu_title_label_setting.tres" id="3_0kf2n"]
+[ext_resource type="FontFile" uid="uid://c1gg0yw02pyb5" path="res://assets/fonts/dogicapixel.ttf" id="4_oogrs"]
+[ext_resource type="FontFile" uid="uid://caj4jhhpy0ha7" path="res://assets/fonts/dogicabold.ttf" id="5_4rm0i"]
+[ext_resource type="StyleBox" uid="uid://67m76h2nyeyy" path="res://resources/main_menu_button_style.tres" id="6_6el3k"]
+[ext_resource type="StyleBox" uid="uid://cscwrtv4vl12l" path="res://resources/main_menu_button_hover_style.tres" id="7_rmflb"]
+[ext_resource type="StyleBox" uid="uid://dtfd366g1j00" path="res://resources/main_menu_button_pressed_style.tres" id="8_qnbmh"]
+[ext_resource type="PackedScene" uid="uid://dg8iotoxg8rsy" path="res://scene_objects/blip.tscn" id="9_0dprg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7a45g"]
+font = ExtResource("4_oogrs")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_odafv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xau5"]
+bg_color = Color(1, 0.345098, 0.133333, 1)
+
+[sub_resource type="Theme" id="Theme_42gtq"]
+default_font = ExtResource("4_oogrs")
+default_font_size = 16
+OptionButton/styles/hover = SubResource("StyleBoxFlat_odafv")
+OptionButton/styles/normal = SubResource("StyleBoxFlat_5xau5")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ogooh"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.12549, 0.384314, 0.486275, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[node name="settings" type="Node2D"]
+script = ExtResource("1_6tbik")
+
+[node name="backgroudMenu" parent="." instance=ExtResource("2_y53hl")]
+
+[node name="menuContainer" type="VBoxContainer" parent="."]
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="topMargin" type="MarginContainer" parent="menuContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="title" type="Label" parent="menuContainer"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+text = "Settings"
+label_settings = ExtResource("3_0kf2n")
+horizontal_alignment = 1
+
+[node name="optionsMargin" type="MarginContainer" parent="menuContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="Language" type="HBoxContainer" parent="menuContainer"]
+layout_mode = 2
+
+[node name="startMargin" type="MarginContainer" parent="menuContainer/Language"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="LanguageLabel" type="Label" parent="menuContainer/Language"]
+layout_mode = 2
+text = "Language"
+label_settings = SubResource("LabelSettings_7a45g")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LanguageOption" type="OptionButton" parent="menuContainer/Language"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = SubResource("Theme_42gtq")
+flat = true
+item_count = 2
+selected = 0
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "Español"
+popup/item_1/id = 1
+
+[node name="music" type="HBoxContainer" parent="menuContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+alignment = 2
+
+[node name="musicLabel" type="Label" parent="menuContainer/music"]
+layout_mode = 2
+text = "Music"
+label_settings = SubResource("LabelSettings_7a45g")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="musicVolume" type="HSlider" parent="menuContainer/music"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+
+[node name="rightMargin" type="MarginContainer" parent="menuContainer/music"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="sfx" type="HBoxContainer" parent="menuContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+alignment = 2
+
+[node name="sfxLabel" type="Label" parent="menuContainer/sfx"]
+layout_mode = 2
+text = "SFX"
+label_settings = SubResource("LabelSettings_7a45g")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="sfxVolume" type="HSlider" parent="menuContainer/sfx"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+
+[node name="rightMargin" type="MarginContainer" parent="menuContainer/sfx"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="fullScreenCheckbox" type="CheckBox" parent="menuContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_oogrs")
+theme_override_font_sizes/font_size = 16
+text = "Full screen"
+icon_alignment = 1
+
+[node name="doneButton" type="Button" parent="menuContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+focus_next = NodePath("../PlayButton")
+focus_previous = NodePath("../CreditsButton")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_4rm0i")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = ExtResource("6_6el3k")
+theme_override_styles/hover = ExtResource("7_rmflb")
+theme_override_styles/pressed = ExtResource("8_qnbmh")
+theme_override_styles/disabled = ExtResource("6_6el3k")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ogooh")
+text = "Done"
+
+[node name="blip" parent="." instance=ExtResource("9_0dprg")]
+
+[connection signal="item_selected" from="menuContainer/Language/LanguageOption" to="." method="_on_language_option_item_selected"]
+[connection signal="value_changed" from="menuContainer/music/musicVolume" to="." method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="menuContainer/sfx/sfxVolume" to="." method="_on_sfx_volume_value_changed"]
+[connection signal="toggled" from="menuContainer/fullScreenCheckbox" to="." method="_on_full_screen_checkbox_toggled"]
+[connection signal="pressed" from="menuContainer/doneButton" to="." method="_on_done_button_pressed"]
